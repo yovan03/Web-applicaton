@@ -101,7 +101,7 @@ const updatePassword = async (req, res) => {
       if (!isMatch) {
         return res.status(401).json({ message: 'Старата лозинка не е точна.' });
       }
-      // Поставување на нова лозинка (pre-save хук ќе ја хешира автоматски)
+      // Поставување на нова лозинка
       user.password = newPassword;
       await user.save();
       res.status(200).json({ message: 'Лозинката е успешно променета.' });

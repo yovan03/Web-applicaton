@@ -20,12 +20,12 @@ export class UserService {
     };
   }
 
-  // 1) Метод за најава
+  // Метод за најава
   loginUser(email: string, password: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, { email, password });
   }
 
-  // 2) Метод за регистрација
+  // Метод за регистрација
   registerUser(
     firstName: string,
     lastName: string,
@@ -42,15 +42,13 @@ export class UserService {
     });
   }
 
-  // 3) Метод за reset на лозинка
   resetPassword(email: string, newPassword: string): Observable<any> {
     return this.http.put(`${this.apiUrl}/reset-password`, { email, newPassword });
   }
 
-  // Постоечките методи за AuthGuard, AdminGuard, итн.
   getProfile(): Observable<any> {
   return this.http.get(`${this.apiUrl}/profile`, this.getHeaders());
-}
+  }
 
   updatePassword(oldPassword: string, newPassword: string): Observable<any> {
     return this.http.put(`${this.apiUrl}/password`, { oldPassword, newPassword }, this.getHeaders());

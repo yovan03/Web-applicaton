@@ -19,21 +19,20 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
 
-  // Admin-only: Упрavljanje со корисници
+
+  // Admin-only:
   {
     path: 'admin/users',
     component: AdminUsersComponent,
     canActivate: [AuthGuard, AdminGuard]
   },
 
-  // Admin-only: Додај нов културен објект
   {
     path: 'admin/add-data',
     component: AddDataComponent,
     canActivate: [AuthGuard, AdminGuard]
   },
 
-  // Admin-only: Уреди постоечки со ID
   {
     path: 'admin/add-data/:id',
     component: AddDataComponent,

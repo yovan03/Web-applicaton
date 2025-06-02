@@ -1,4 +1,3 @@
-// src/app/add-data/add-data.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

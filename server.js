@@ -28,7 +28,7 @@ app.listen(PORT, () => {
     console.log(`Серверот е стартуван на портата: ${PORT}`);
 });
 
-////opcinalno...
+//opcinalno...
 app.get('/', (req, res) => {
     res.send("Welcome to API!");
 });
