@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 fixed-top" *ngIf="showNavbar">
+   <span class="navbar-brand mb-0 h1">Културно Наследство.MK</span>
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLinkActive="active" routerLink="/home">Почетна</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLinkActive="active" routerLink="/account">Акаунт</a>
+      </li>
+      <li class="nav-item"> 
+          <a class="nav-link text-white" routerLinkActive="active" *ngIf="isAdmin" routerLink="/admin/users">Корисници</a>
+      </li>  
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLinkActive="active" *ngIf="isAdmin" routerLink="/admin/add-data">Додај објект</a>
+      </li>
+    </ul>
+
+    <button class="btn btn-outline-danger" (click)="logout()">Одјави се</button>
+  </div>
+</nav>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<<footer class="bg-dark text-white text-center py-3 mt-auto border-top">
+  <p>Контакт: <a href="mailto:nastevski.jovan&#64;uklo.edu.mk" class="text-white">nastevski.jovan&#64;uklo.edu.mk</a></p>
+  <div>
+    <a href="https://facebook.com/yourpage" target="_blank" class="mx-2 text-white">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://instagram.com/yourpage" target="_blank" class="mx-2 text-white">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://youtube.com/yourpage" target="_blank" class="mx-2 text-white">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+</footer>

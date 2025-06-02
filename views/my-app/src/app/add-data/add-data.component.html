@@ -1,0 +1,111 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-4">
+    {{ isEditMode ? 'Ажурирај културен објект' : 'Додај новo културенo наследство/ знаменитост' }}
+  </h3>
+
+  <form (ngSubmit)="onSubmit()" #heritageForm="ngForm">
+    <!-- Назив -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Назив</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        required
+        [(ngModel)]="heritage.name"
+        name="name"
+      />
+    </div>
+
+    <!-- Тип -->
+    <div class="mb-3">
+      <label for="type" class="form-label">Тип</label>
+      <select
+        id="type"
+        class="form-select"
+        required
+        [(ngModel)]="heritage.type"
+        name="type"
+      >
+        <option value="" disabled>Избери тип</option>
+        <option value="Објект/Зграда">Објект/Зграда</option>
+        <option value="Црква">Црква</option>
+        <option value="Манастир">Манастир</option>
+        <option value="Споменик на култура">Споменик на култура</option>
+        <option value="Археолошко наоѓалиште">Археолошко наоѓалиште</option>
+        <option value="Споменик на личност">Споменик на личност</option>
+        <option value="Природна убавина">Природна убавина</option>
+        <option value="Национален парк">Национален парк</option>
+        <option value="Природен резерват">Природен резерват</option>
+      </select>
+    </div>
+
+    <!-- Локација -->
+    <div class="mb-3">
+      <label for="location" class="form-label">Локација</label>
+      <input
+        type="text"
+        id="location"
+        class="form-control"
+        required
+        [(ngModel)]="heritage.location"
+        name="location"
+      />
+    </div>
+
+    <!-- Изградено -->
+    <div class="mb-3">
+      <label for="built" class="form-label">Изградено</label>
+      <input
+        type="text"
+        id="built"
+        class="form-control"
+        [(ngModel)]="heritage.built"
+        name="built"
+      />
+    </div>
+
+    <!-- Изградил -->
+    <div class="mb-3">
+      <label for="builder" class="form-label">Изградил</label>
+      <input
+        type="text"
+        id="builder"
+        class="form-control"
+        [(ngModel)]="heritage.builder"
+        name="builder"
+      />
+    </div>
+
+    <!-- Опис -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Опис</label>
+      <textarea
+        id="description"
+        rows="3"
+        class="form-control"
+        [(ngModel)]="heritage.description"
+        name="description"
+      ></textarea>
+    </div>
+
+    <!-- URL на слика -->
+    <div class="mb-3">
+      <label for="image" class="form-label">URL на слика</label>
+      <input
+        type="text"
+        id="image"
+        class="form-control"
+        [(ngModel)]="heritage.image"
+        name="image"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      {{ isEditMode ? 'Ажурирај' : 'Додај' }}
+    </button>
+  </form>
+
+  <p *ngIf="message" class="alert alert-info mt-3">{{ message }}</p>
+</div>
+

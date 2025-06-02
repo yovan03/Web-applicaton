@@ -1,0 +1,18 @@
+.navbar {
+    z-index: 1000; /* Над другите елементи */
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #343a40; /* Темна позадина за мобилно мени */
+        padding: 10px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 15px;
+    }
+
+    .btn-outline-danger {
+        margin: 10px 15px;
+    }
+}

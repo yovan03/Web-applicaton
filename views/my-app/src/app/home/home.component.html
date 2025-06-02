@@ -1,0 +1,37 @@
+<!-- src/app/home/home.component.html -->
+<div class="container mt-4">
+  <h3 class="text-center mb-4">Пребарување на културно наследство и природни убавини низ Македонија</h3>
+
+  <input [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Пребарај..." class="form-control mb-4" />
+
+  <div class="container mt-4">
+    <div class="row" *ngFor="let item of results">
+      <div class="col-12 mb-4">
+        <div class="card p-3 shadow-sm d-flex flex-row flex-wrap align-items-center">
+          
+          <!-- Слика лево -->
+          <div class="col-md-4 text-center mb-3 mb-md-0">
+            <img *ngIf="item.image" [src]="item.image" class="img-fluid rounded" style="max-height: 200px;" alt="Слика">
+          </div>
+
+          <!-- Текст десно -->
+          <div class="col-md-8">
+            <h5>{{ item.name }}</h5>
+            <p><strong>Тип:</strong> {{ item.type }}</p>
+            <p><strong>Локација:</strong> {{ item.location }}</p>
+            <p><strong>Изградено:</strong> {{ item.built }}</p>
+            <p><strong>Изградил:</strong> {{ item.builder }}</p>
+            <p><strong>Опис:</strong> {{ item.description }}</p>
+            <div *ngIf="isAdmin" class="mt-2">
+              <button class="btn btn-sm btn-outline-primary me-2" (click)="editItem(item)">Уреди</button>
+              <button class="btn btn-sm btn-outline-danger" (click)="deleteItem(item._id)">Избриши</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <p *ngIf="results.length === 0" class="text-center mt-4">Нема резултати.</p>
+</div>

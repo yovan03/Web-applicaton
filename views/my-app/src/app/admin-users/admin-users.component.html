@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-4">Управување со корисници</h3>
+
+  <!-- Поле за пребарување -->
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="onSearch()"
+    placeholder="Пребарај корисници..."
+    class="form-control mb-3"
+  />
+
+  <table class="table table-striped">
+    <thead class="table-light">
+      <tr>
+        <th>Име</th>
+        <th>Презиме</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Улога</th>
+        <th>Статус</th>
+        <th>Акции</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <span
+            class="badge"
+            [ngClass]="{
+              'bg-danger': user.isBanned,
+              'bg-success': !user.isBanned
+            }"
+          >
+            {{ user.isBanned ? 'Баниран' : 'Активен' }}
+          </span>
+        </td>
+        <td>
+          <button
+            class="btn btn-sm btn-outline-primary me-2"
+            (click)="toggleRole(user)"
+          >
+            {{ user.role === 'Admin' ? 'Поништи Admin' : 'Додели Admin' }}
+          </button>
+          <button
+            class="btn btn-sm btn-outline-warning"
+            (click)="toggleBan(user)"
+          >
+            {{ user.isBanned ? 'Одбанирај' : 'Банирај' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="users.length === 0" class="text-center">Нема корисници.</p>
+</div>
+
