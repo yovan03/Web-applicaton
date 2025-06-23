@@ -1,0 +1,40 @@
+<div class="container py-5">
+  <h1 class="text-center mb-4">КултурноНаследство.МК</h1>
+
+  <div class="row mb-4">
+    <!-- НОВО: Слика лево -->
+    <div class="col-md-4 text-center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/%D0%9F%D0%BE%D0%B3%D0%BB%D0%B5%D0%B4_%D0%BD%D0%B0_%D0%B5%D0%B7%D0%B5%D1%80%D0%BE_%D0%9A%D0%BE%D0%B7%D1%98%D0%B0%D0%BA_%D0%BE%D0%B4_%D0%A4%D0%BE%D1%98%D0%BD%D0%B8%D0%BA_2.jpg" alt="Козјак" class="img-fluid rounded shadow-sm macedonia-map">
+    </div>
+    <!-- Текст десно, порамнет од двете страни -->
+    <div class="col-md-8">
+      <p class="lead text-justify">
+        Добредојдете на <strong>КултурноНаследство.МК</strong>,  
+        вашата платформа за истражување и запознавање со богатото културно наследство, знаменитости и природни убавини низ Македонија. 
+        Откријте места што мора да ги посетите и лесно водете евиденција за вашите омилени дестинации кои би сакале да ги постетите или веќе 
+        сте ги посетиле. Придружете ни се и започнете го вашето патување низ <strong>македонската земја!</strong>
+      </p>
+      <div class="text-center">
+        <a *ngIf="!isLoggedIn" routerLink="/auth" class="btn btn-primary mt-3">Најава/ Регистрација</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <p>Дали знаете за уникатни места во Македонија што заслужуваат да бидат споделени? Контактирајте нè преку е-пошта и помогнете ни да ја збогатиме нашата база на културни и природни богатства!</p>
+      <p>Пишете ни на: <a href="mailto:nastevski.jovan&#64;uklo.edu.mk" class="text-primary">nastevski.jovan&#64;uklo.edu.mk</a></p>
+      <div class="social-links mt-3">
+        <a href="https://facebook.com" target="_blank" class="me-3">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://x.com" target="_blank" class="me-3">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

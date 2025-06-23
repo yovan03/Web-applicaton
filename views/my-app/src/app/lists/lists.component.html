@@ -1,0 +1,50 @@
+<!-- src/app/lists/lists.component.html -->
+<div class="container mt-4">
+  <h3 class="text-center mb-4">Мои листи</h3>
+
+  <input [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Пребарај..." class="form-control mb-4" />
+
+  <div class="row">
+    <!-- Лева половина: Посетени места -->
+    <div class="col-md-6">
+      <h4><span class="icon-check me-2"><i class="fas fa-check"></i></span>Посетени места</h4>
+      <div class="card mb-3" *ngFor="let item of userLists.visited">
+        <a [routerLink]="['/heritage', item._id]" class="text-decoration-none text-dark">
+          <div class="card-body d-flex align-items-center">
+            <img *ngIf="item.image" [src]="item.image" class="me-3" style="width: 50px; height: 50px; object-fit: cover;" alt="Слика">
+            <div>
+              <h6 class="mb-1">{{ item.name }}</h6>
+              <p class="mb-0 text-muted">{{ item.location }}</p>
+            </div>
+          </div>
+        </a>
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-outline-primary btn-sm" (click)="moveToWishlist(item._id)">Врати во места за посетување</button>
+          <button class="btn btn-outline-danger btn-sm" (click)="removeFromVisited(item._id)">Отстрани од посетени места</button>
+        </div>
+      </div>
+      <p *ngIf="userLists.visited.length === 0">Нема посетени места.</p>
+    </div>
+
+    <!-- Десна половина: Места за посетување -->
+    <div class="col-md-6">
+      <h4><span class="icon-star me-2"><i class="fas fa-star"></i></span>Места за посетување</h4>
+      <div class="card mb-3" *ngFor="let item of userLists.wishlist">
+        <a [routerLink]="['/heritage', item._id]" class="text-decoration-none text-dark">
+          <div class="card-body d-flex align-items-center">
+            <img *ngIf="item.image" [src]="item.image" class="me-3" style="width: 50px; height: 50px; object-fit: cover;" alt="Слика">
+          <div>
+            <h6 class="mb-1">{{ item.name }}</h6>
+            <p class="mb-0 text-muted">{{ item.location }}</p>
+          </div>
+          </div>
+        </a>
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-outline-primary btn-sm" (click)="moveToVisited(item._id)">Премести во посетени места</button>
+          <button class="btn btn-outline-danger btn-sm" (click)="removeFromWishlist(item._id)">Отстрани од места за посетување</button>
+        </div>
+      </div>
+      <p *ngIf="userLists.wishlist.length === 0">Нема места за посетување.</p>
+    </div>
+  </div>
+</div>

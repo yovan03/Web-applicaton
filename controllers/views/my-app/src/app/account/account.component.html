@@ -1,0 +1,22 @@
+<div class="container mt-4" *ngIf="user">
+    <h2 class="text-center mb-4">Кориснички профил</h2>
+    <div class="card mb-4">
+        <div class="card-body">
+            <p><strong>Име:</strong> {{ user.firstName }}</p>
+            <p><strong>Презиме:</strong> {{ user.lastName }}</p>
+            <p><strong>Корисничко име:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+    </div>
+    <h3 class="text-center mb-3">Промена на лозинка</h3>
+    <form class="row g-3 mb-4" (ngSubmit)="changePassword()">
+        <div class="col-12 col-md-6 mx-auto">
+            <input type="password" [(ngModel)]="oldPassword" name="oldPassword" placeholder="Стара лозинка" class="form-control mb-2" required />
+            <input type="password" [(ngModel)]="newPassword" name="newPassword" placeholder="Нова лозинка" class="form-control mb-2" required />
+            <button type="submit" class="btn btn-warning w-100">Промени</button>
+        </div>
+    </form>
+    <div class="text-center">
+        <button (click)="onDeleteAccount()" class="btn btn-danger">Избриши акаунт</button>
+    </div>
+</div>

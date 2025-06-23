@@ -1,0 +1,42 @@
+<!-- src/app/heritage-details/heritage-details.component.html -->
+<div class="container mt-4" *ngIf="heritage">
+  <h3>{{ heritage.name }}</h3>
+  <div class="card p-3 shadow-sm">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img *ngIf="heritage.image" [src]="heritage.image" class="img-fluid rounded" style="max-height: 300px;" alt="Слика">
+      </div>
+      <div class="col-md-8">
+        <p><strong>Тип:</strong> {{ heritage.type }}</p>
+        <p><strong>Локација:</strong> {{ heritage.location }}</p>
+        <p><strong>Изградено:</strong> {{ heritage.built }}</p>
+        <p><strong>Изградил:</strong> {{ heritage.builder }}</p>
+        <p><strong>Опис:</strong> {{ heritage.description }}</p>
+        <p *ngIf="heritage.link"><strong>Линк:</strong> <a [href]="heritage.link" target="_blank">{{ heritage.link }}</a></p>
+        <!-- ОpenStreetMap со Leaflet -->
+        <div *ngIf="heritage.latitude && heritage.longitude" class="map-container">
+          <div id="map" style="height: 400px;"></div>
+        </div>
+        <div class="card-footer d-flex justify-content-between mt-3">
+        <!-- НОВО: Копчиња за Admin -->
+        <div *ngIf="isAdmin">
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="editItem(heritage)">Уреди</button>
+          <button class="btn btn-sm btn-outline-danger" (click)="deleteItem(heritage._id)">Избриши</button>
+        </div>
+        <!-- НОВО: Копчиња за Client -->
+        <div *ngIf="isClient">
+          <button class="btn btn-sm btn-outline-success me-2"
+                  [disabled]="isInWishlist(heritage._id)"
+                  (click)="addToWishlist(heritage._id)">Додај во места за посетување</button>
+          <button class="btn btn-sm btn-outline-info"
+                  [disabled]="isInVisited(heritage._id)"
+                  (click)="addToVisited(heritage._id)">Додај во посетени места</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4" *ngIf="!heritage">
+  <p class="text-center">Објектот не е пронајден.</p>
+</div>

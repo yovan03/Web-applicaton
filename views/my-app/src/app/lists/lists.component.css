@@ -1,0 +1,64 @@
+/* src/app/lists/lists.component.css */
+.card {
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  border-radius: 4px;
+}
+a.text-decoration-none:hover {
+  text-decoration: none;
+}
+
+.card a {
+  display: block;
+  color: inherit;
+}
+
+.card-body {
+  padding-bottom: 0;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card-footer {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.875rem;
+}
+
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.form-control {
+  max-width: 400px; /* Ограничи ширина за подобар изглед */
+  margin: 0 auto; /* Центрирај */
+}
